@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+#include<string>
+
+void cpp_strings()
+{
+    string unformatted_full_name{"StephenHawking"}; 
+    int last_name_start_index{0};
+    
+    for(unsigned int i = 1; i < unformatted_full_name.size(); ++i)
+    {
+      if(isupper(unformatted_full_name.at(i)))
+      {
+        last_name_start_index = i; 
+        break;
+      }
+    }
+    
+    string first_name{unformatted_full_name,0,last_name_start_index};
+    string last_name = unformatted_full_name.substr(last_name_start_index); 
+    
+    string formatted_full_name = first_name + last_name; 
+    
+    formatted_full_name.insert(last_name_start_index, " "); 
+    
+    cout << formatted_full_name;
+}
+
+int main() 
+{
+    cpp_strings();
+    return 0;
+}
